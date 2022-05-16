@@ -2,3 +2,12 @@
 *.DS_Store
 ./sha256
 ./sha256.pub
+data
+mmseg_output
+pretrain
+work_dirs
+vis
+ckeckpoints
+*.npy
+*.txt
+*.pt

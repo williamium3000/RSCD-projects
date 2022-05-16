@@ -7,19 +7,19 @@ class DataConfig:
         self.data_name = data_name
         if data_name == 'LEVIR':
             self.label_transform = "norm"
-            self.root_dir = '/media/lidan/ssd2/CDData/LEVIR-CD256/'
+            self.root_dir = 'data/LEVIR-CD-256/'
         elif data_name == 'DSIFN':
             self.label_transform = "norm"
-            self.root_dir = '/media/lidan/ssd2/CDData/DSIFN_256/'
+            self.root_dir = 'data/DSIFN-CD-256/'
         elif data_name == 'WHU':
             self.label_transform = "norm"
-            self.root_dir = '/media/lidan/ssd2/CDData/WHU-CD-256/'
+            self.root_dir = 'data/WHU-CD-256/'
         elif data_name == 'CDD':
             self.label_transform = "norm"
-            self.root_dir = '/media/lidan/ssd2/CDData/CDD-CD-256/'
+            self.root_dir = 'data/CDD-CD-256/'
         elif data_name == 'TYPO':
             self.label_transform = "norm"
-            self.root_dir = '/media/lidan/ssd2/CDData/TYPO/'
+            self.root_dir = 'data/TYPO/'
         elif data_name == 'quick_start_LEVIR':
             self.root_dir = './samples_LEVIR/'
         elif data_name == 'quick_start_DSIFN':
