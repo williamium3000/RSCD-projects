@@ -2,7 +2,7 @@
 set -x
 PARTITION=$1
 #GPUs
-gpus=0
+gpus=0,1
 
 #Set paths
 checkpoint_root=./checkpoints
@@ -11,7 +11,7 @@ data_name=LEVIR
 
 
 img_size=256    
-batch_size=8   
+batch_size=16   
 lr=0.0001         
 max_epochs=200
 embed_dim=256
@@ -36,7 +36,7 @@ project_name=CD_${net_G}_${data_name}_b${batch_size}_lr${lr}_${optimizer}_${spli
 # CUDA_VISIBLE_DEVICES=1 
 srun -p ${PARTITION} \
         --job-name changeformer_levircd256 \
-        --gres=gpu:1 \
+        --gres=gpu:2 \
         --ntasks=1 \
         --ntasks-per-node=1 \
         --cpus-per-task=4 \

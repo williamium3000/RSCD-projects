@@ -11,6 +11,9 @@ class DataConfig:
         elif data_name == 'DSIFN':
             self.label_transform = "norm"
             self.root_dir = 'data/DSIFN-CD-256/'
+        elif data_name == 'S2Looking':
+            self.label_transform = "norm"
+            self.root_dir = 'data/S2Looking-256/'
         elif data_name == 'WHU':
             self.label_transform = "norm"
             self.root_dir = 'data/WHU-CD-256/'

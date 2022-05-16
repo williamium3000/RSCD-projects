@@ -7,12 +7,12 @@ gpus=0,1
 #Set paths
 checkpoint_root=./checkpoints
 vis_root=./vis
-data_name=DSIFN
+data_name=S2Looking
 
 
 img_size=256    
 batch_size=16   
-lr=0.00006        
+lr=0.0001         
 max_epochs=200
 embed_dim=256
 
@@ -30,11 +30,12 @@ pretrain=pretrain/pretrained_changeformer.pt
 
 #Train and Validation splits
 split=train         #trainval
-split_val=test      #test
+split_val=val      #test
 project_name=CD_${net_G}_${data_name}_b${batch_size}_lr${lr}_${optimizer}_${split}_${split_val}_${max_epochs}_${lr_policy}_${loss}_multi_train_${multi_scale_train}_multi_infer_${multi_scale_infer}_shuffle_AB_${shuffle_AB}_embed_dim_${embed_dim}
 
+# CUDA_VISIBLE_DEVICES=1 
 srun -p ${PARTITION} \
-        --job-name changeformer_dsifn256 \
+        --job-name changeformer_S2Looking256 \
         --gres=gpu:2 \
         --ntasks=1 \
         --ntasks-per-node=1 \
