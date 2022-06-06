@@ -14,7 +14,7 @@ for _ in tqdm.tqdm(mmcv.scandir(osp.join(root, "A"), suffix=".png", recursive=Tr
         for j in range(w // crop_size):
             dest_path = osp.join(osp.join(dest, "A", name + "_{}_{}.".format(i, j) + suffix))
             mmcv.mkdir_or_exist(osp.dirname(dest_path))
-            mmcv.imwrite(img[i:i+crop_size, j:j+crop_size:], dest_path)
+            mmcv.imwrite(img[i * crop_size:(i + 1) * crop_size, j * crop_size:(j + 1) * crop_size], dest_path)
             name_list.append(osp.basename(dest_path))
 for _ in tqdm.tqdm(mmcv.scandir(osp.join(root, "B"), suffix=".png", recursive=True)):
     img = mmcv.imread(osp.join(osp.join(root, "B"), _))
@@ -24,7 +24,7 @@ for _ in tqdm.tqdm(mmcv.scandir(osp.join(root, "B"), suffix=".png", recursive=Tr
         for j in range(w // crop_size):
             dest_path = osp.join(osp.join(dest, "B", name + "_{}_{}.".format(i, j) + suffix))
             mmcv.mkdir_or_exist(osp.dirname(dest_path))
-            mmcv.imwrite(img[i:i+crop_size, j:j+crop_size:], dest_path)
+            mmcv.imwrite(img[i * crop_size:(i + 1) * crop_size, j * crop_size:(j + 1) * crop_size], dest_path)
             assert osp.basename(dest_path) in name_list
 
 for _ in tqdm.tqdm(mmcv.scandir(osp.join(root, "label"), suffix=".png", recursive=True)):
@@ -35,7 +35,7 @@ for _ in tqdm.tqdm(mmcv.scandir(osp.join(root, "label"), suffix=".png", recursiv
         for j in range(w // crop_size):
             dest_path = osp.join(osp.join(dest, "label", name + "_{}_{}.".format(i, j) + suffix))
             mmcv.mkdir_or_exist(osp.dirname(dest_path))
-            mmcv.imwrite(img[i:i+crop_size, j:j+crop_size:], dest_path)
+            mmcv.imwrite(img[i * crop_size:(i + 1) * crop_size, j * crop_size:(j + 1) * crop_size], dest_path)
             assert osp.basename(dest_path) in name_list
 with open(name_list_path, "w") as f:
     f.write("\n".join(name_list))
